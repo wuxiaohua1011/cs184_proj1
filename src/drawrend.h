@@ -102,6 +102,10 @@ private:
       PixelColorStorage &p = sub_pixels[i][j];
       // Part 1: Overwrite PixelColorStorage p using Color c.
       //         Pay attention to different data types.
+      p[0] = c.a * 255;
+      p[1] = c.b * 255;
+      p[2] = c.r * 255;
+      p[3] = c.g * 255;
 
     }
 
