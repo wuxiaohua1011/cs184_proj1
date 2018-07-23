@@ -499,8 +499,14 @@ void DrawRend::rasterize_triangle( float x0, float y0,
            float result = -(j-x0)*(y1-y0)+(i-y0)*(x1-x0);
            float result2 = -(j-x1)*(y2-y1)+(i-y1)*(x2-x1);
            float result3 = -(j-x2)*(y0-y2)+(i-y2)*(x0-x2);
+           int samples_per_side = sqrt(sample_rate);
            if((result >= 0 && result2 >= 0 && result3 >= 0) || (result <= 0 && result2 <= 0 && result3 <= 0)){
-              samplebuffer[i][j].fill_color(0,0,color);
+              // samplebuffer[i][j].fill_color(0, 0, color);
+              for(int k = 0; k < samples_per_side; k++){
+                for(int t = 0; t < samples_per_side; t++){
+                  samplebuffer[i][j].fill_color(k,t,color);
+                }
+              }
           }
       }
   }
