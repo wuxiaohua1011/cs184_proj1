@@ -108,8 +108,6 @@ private:
       p[2] = (unsigned char) c.b * 255;
       p[3] = (unsigned char) c.a * 255;
 
-
-
     }
 
     void fill_pixel(Color c) {
